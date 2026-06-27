@@ -6,11 +6,23 @@
 //  See the project README for full license terms and source disclosure rules.
 //
 //  PROPRIETARY INTELLECTUAL PROPERTY CLAIMS:
-//  The core operational concepts implemented and monitored by this software 
-//  are claimed as proprietary intellectual property, specifically:
-//  1. Intra-Cryo 3-Channel Topology (routing/termination inside cryogenic zone).
-//  2. Material-Ring Regulation and Deflection Filtering via local gradients.
-//  3. Integrated Detection Filtering through structural masking.
+//  The core operational concepts and the totality of the architectural 
+//  configuration presented in this project are claimed as proprietary 
+//  intellectual property:
+//  1. Intra-Cryo 3-Channel Topology: The specific parallel routing and 
+//     termination of three isolated processing channels entirely within 
+//     the cryogenic zone.
+//  2. Material-Ring Regulation and Deflection Filtering: The method of 
+//     utilizing external concentric material rings to create precise local 
+//     field gradients for wave-front deflection and parasitic mode suppression.
+//  3. Double-Chamber Spatial Masking: The unique method of integrating a 
+//     dual-wall structural interface to form an isolated dark sub-enclosure, 
+//     enforcing strict line-of-sight spatial validation prior to sensor registration.
+//  4. Totality of the Configuration: The proprietary combined structural 
+//     arrangement where specific quantum states are validated strictly by 
+//     passing through customized ring sequences and the consecutive 
+//     double-aperture entry points of isolated sensor chambers, translating 
+//     physical geometric filtering directly into raw counter updates.
 // ============================================================================
 
 #include <iostream>
