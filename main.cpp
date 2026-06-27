@@ -1,7 +1,16 @@
 // ============================================================================
 //  3-Port Quantum Readout Core & Real-Time Rate Meter
 //  Copyright (C) 2026
-//  Licensed under GNU GPLv3.
+//
+//  LICENSE: Distributed under the GNU Affero General Public License v3.0 (AGPLv3).
+//  See the project README for full license terms and source disclosure rules.
+//
+//  PROPRIETARY INTELLECTUAL PROPERTY CLAIMS:
+//  The core operational concepts implemented and monitored by this software 
+//  are claimed as proprietary intellectual property, specifically:
+//  1. Intra-Cryo 3-Channel Topology (routing/termination inside cryogenic zone).
+//  2. Material-Ring Regulation and Deflection Filtering via local gradients.
+//  3. Integrated Detection Filtering through structural masking.
 // ============================================================================
 
 #include <iostream>
@@ -12,9 +21,9 @@
 #include <algorithm>
 
 // Atomic hardware counters for the 3 dedicated internal ports
-std::atomic<uint64_t> port1_counter{0}; // |1> Quantum State
-std::atomic<uint64_t> port2_counter{0}; // |0> Quantum State
-std::atomic<uint64_t> port3_counter{0}; // Reference Channel (Background Noise)
+std::atomic<uint64_t> port1_counter{0}; // |1> Quantum State Locus
+std::atomic<uint64_t> port2_counter{0}; // |0> Quantum State Locus
+std::atomic<uint64_t> port3_counter{0}; // Reference Channel (Background Noise Floor)
 
 // Exponential Moving Average (EMA) to smooth out gravitational phase-jitter
 double smooth_contrast(double current_raw, double previous_ema, double alpha = 0.2) {
@@ -24,14 +33,14 @@ double smooth_contrast(double current_raw, double previous_ema, double alpha = 0
 int main() {
     double contrast_ema = 1.0;
     
-    std::cout << "=== 3-Port Quantum Readout Core Initialized [GPLv3] ===" << std::endl;
+    std::cout << "=== 3-Port Quantum Readout Core Initialized [AGPLv3] ===" << std::endl;
     std::cout << "Monitoring active... Press Ctrl+C to terminate." << std::endl;
 
     // Real-time measurement loop (1-second sampling intervals for display presentation)
     while (true) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
 
-        // FIXED: Using sequential consistency to guarantee absolute clock sync across ports
+        // Using sequential consistency to guarantee absolute clock sync across ports
         uint64_t c1 = port1_counter.exchange(0, std::memory_order_seq_cst);
         uint64_t c2 = port2_counter.exchange(0, std::memory_order_seq_cst);
         uint64_t c3 = port3_counter.exchange(0, std::memory_order_seq_cst);
@@ -51,7 +60,7 @@ int main() {
             if (i < bar_width) std::cout << "#";
             else std::cout << ".";
         }
-        // FIXED: Corrected the typo 'setsetprecision' to 'setprecision'
+        
         std::cout << "] Contrast: " << std::fixed << std::setprecision(2) << contrast_ema;
 
         if (contrast_ema > 10.0) {
