@@ -8,8 +8,8 @@ This project is an independent theoretical research initiative, developed to res
 The core operational concepts and the totality of the architectural configuration presented in this project are claimed as proprietary intellectual property:
 1. **Intra-Cryo 3-Channel Topology:** The specific parallel routing and termination of three isolated processing channels entirely within the cryogenic zone.
 2. **Material-Ring Regulation and Deflection Filtering:** The method of utilizing external concentric material rings to create precise local field gradients for wave-front deflection and parasitic mode suppression.
-3. **Double-Chamber Spatial Masking:** The structural integration of a dual-wall system that forms a completely isolated dark chamber behind which the sensor is nested, ensuring detection occurs strictly within this protected sub-enclosure.
-4. **Totality of the Configuration:** The combined structural arrangement where specific quantum states are validated strictly by passing through customized ring sequences and double-aperture bottlenecks into geographically separated sensors, translating physical filtering directly into raw counter updates.
+3. **Double-Chamber Spatial Masking:** The unique method of integrating a dual-wall structural interface to form an isolated dark sub-enclosure, enforcing strict line-of-sight spatial validation prior to sensor registration.
+4. **Totality of the Configuration:** The proprietary combined structural arrangement where specific quantum states are validated strictly by passing through customized ring sequences and the consecutive double-aperture entry points of isolated sensor chambers, translating physical geometric filtering directly into raw counter updates.
 
 ## Physical Architecture & Theoretical Framework
 
